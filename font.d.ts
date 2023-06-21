@@ -2,10 +2,19 @@ import * as createPalette from '@material-ui/core/styles/createPalette';
 
 declare module '@mui/material/styles/createPalette' {
   interface Palette {
-    yellow: Pallete['primary'];
+    yellow: Palette['primary'];
+    white: Palette['primary'];
   }
 
   interface PaletteOptions {
-    yellow?: PalleteOptions['primary'];
+    yellow?: PaletteOptions['primary'];
+    white?: PaletteOptions['primary'];
+  }
+}
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsColorOverrides {
+    yellow: true;
+    white: true;
   }
 }

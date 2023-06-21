@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -10,51 +9,130 @@ import {
   StyledEngineProvider,
 } from '@mui/material';
 
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material';
 
 import { ThemeProvider as ScThemeProvider } from 'styled-components';
 
 import RalewayExtraLightTTF from './assets/fonts/Raleway/Raleway-ExtraLight.ttf';
 import RalewayLightTTF from './assets/fonts/Raleway/Raleway-Light.ttf';
 import RalewayRegularTTF from './assets/fonts/Raleway/Raleway-Regular.ttf';
+import RalewayMediumTTF from './assets/fonts/Raleway/Raleway-Medium.ttf';
+import RalewaySemiBoldTTF from './assets/fonts/Raleway/Raleway-SemiBold.ttf';
+import RalewayBoldTTF from './assets/fonts/Raleway/Raleway-Bold.ttf';
+import RalewayExtraBoldTTF from './assets/fonts/Raleway/Raleway-ExtraBold.ttf';
+import RalewayBlackTTF from './assets/fonts/Raleway/Raleway-Black.ttf';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const RalewayExtraLight = {
+  fontFamily: 'Raleway',
+  fontStyle: 'normal',
+  fontWeight: '200',
+  src: `url(${RalewayExtraLightTTF}) format('truetype')`,
+};
+
+const RalewayLight = {
+  fontFamily: 'Raleway',
+  fontStyle: 'normal',
+  fontWeight: '300',
+  src: `url(${RalewayLightTTF}) format('truetype')`,
+};
+
+const RalewayRegular = {
+  fontFamily: 'Raleway',
+  fontStyle: 'normal',
+  fontWeight: '400',
+  src: `url(${RalewayRegularTTF}) format('truetype')`,
+};
+
+const RalewayMedium = {
+  fontFamily: 'Raleway',
+  fontStyle: 'normal',
+  fontWeight: '500',
+  src: `url(${RalewayMediumTTF}) format('truetype')`,
+};
+
+const RalewaySemiBold = {
+  fontFamily: 'Raleway',
+  fontStyle: 'normal',
+  fontWeight: '600',
+  src: `url(${RalewaySemiBoldTTF}) format('truetype')`,
+};
+
+const RalewayBold = {
+  fontFamily: 'Raleway',
+  fontStyle: 'normal',
+  fontWeight: '700',
+  src: `url(${RalewayBoldTTF}) format('truetype')`,
+};
+
+const RalewayExtraBold = {
+  fontFamily: 'Raleway',
+  fontStyle: 'normal',
+  fontWeight: '800',
+  src: `url(${RalewayExtraBoldTTF}) format('truetype')`,
+};
+
+const RalewayBlack = {
+  fontFamily: 'Raleway',
+  fontStyle: 'normal',
+  fontWeight: '900',
+  src: `url(${RalewayBlackTTF}) format('truetype')`,
+};
+
 const theme = responsiveFontSizes(
   createTheme({
     typography: {
-      fontFamily: ['Raleway'].join(''),
+      fontFamily: 'Raleway',
+      body1: {
+        fontWeight: 400,
+        fontSize: '1rem',
+        color: '#FFF',
+      },
+      h1: {
+        fontSize: '6rem',
+        fontWeight: 700,
+        lineHeight: 1.2,
+      },
+      h2: {
+        fontWeight: 700,
+      },
+      h5: {
+        fontWeight: 700,
+        fontSize: 28,
+      },
+      subtitle2: {
+        fontWeight: 900,
+      },
+      button: {
+        fontWeight: 700,
+        lineHeight: 2.8,
+        textTransform: 'unset',
+      },
     },
     components: {
       MuiCssBaseline: {
-        styleOverrides: `
-        @font-face {
-          font-family: 'Raleway';
-          font-style: normal;
-          font-display: swap;
-          font-weight: 200;
-          src: local('Raleway'), local('Raleway-Extra-Light'), url(${RalewayExtraLightTTF}) format('truetype');
+        styleOverrides: {
+          html: [
+            { '@font-face': RalewayExtraLight },
+            { '@font-face': RalewayLight },
+            { '@font-face': RalewayRegular },
+            { '@font-face': RalewayMedium },
+            { '@font-face': RalewaySemiBold },
+            { '@font-face': RalewayBold },
+            { '@font-face': RalewayExtraBold },
+            { '@font-face': RalewayBlack },
+          ],
+          'html, body': {
+            padding: 0,
+          },
         },
-        @font-face {
-          font-family: 'Raleway';
-          font-style: normal;
-          font-display: swap;
-          font-weight: 300;
-          src: local('Raleway'), local('Raleway-Light'), url(${RalewayLightTTF}) format('truetype');
-        },
-        @font-face {
-          font-family: 'Raleway';
-          font-style: normal;
-          font-display: swap;
-          font-weight: 400;
-          src: local('Raleway'), local('Raleway-Regular'), url(${RalewayRegularTTF}) format('truetype');
-        },
-      `,
       },
     },
     palette: {
+      mode: 'light',
       primary: {
         main: '#4CAF50',
         contrastText: '#FFF',
@@ -67,7 +145,14 @@ const theme = responsiveFontSizes(
         main: '#FFAD1D',
         contrastText: '#FFF',
       },
+      white: {
+        main: '#FFF',
+        contrastText: '#FFF',
+      },
       contrastThreshold: 4.5,
+    },
+    shape: {
+      borderRadius: 0,
     },
   })
 );
