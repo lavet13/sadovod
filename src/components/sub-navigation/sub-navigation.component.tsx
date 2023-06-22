@@ -1,11 +1,9 @@
-import { Box, Container, Stack, useTheme } from '@mui/material';
+import { Box, Container, Stack } from '@mui/material';
 import { SubButton } from './sub-navigation.styles';
 
 const SubNavigation = () => {
-  const theme = useTheme();
-
   return (
-    <Box sx={{ backgroundColor: theme.palette.primary.main }}>
+    <Box sx={theme => ({ backgroundColor: theme.palette.primary.main })}>
       <Container>
         <Stack direction='row' justifyContent='center' spacing={5}>
           <SubButton color='white' variant='text'>

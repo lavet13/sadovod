@@ -21,6 +21,7 @@ import RalewaySemiBoldTTF from './assets/fonts/Raleway/Raleway-SemiBold.ttf';
 import RalewayBoldTTF from './assets/fonts/Raleway/Raleway-Bold.ttf';
 import RalewayExtraBoldTTF from './assets/fonts/Raleway/Raleway-ExtraBold.ttf';
 import RalewayBlackTTF from './assets/fonts/Raleway/Raleway-Black.ttf';
+import { lightBlue } from '@mui/material/colors';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -88,7 +89,7 @@ const theme = responsiveFontSizes(
       fontFamily: 'Raleway',
       body1: {
         fontWeight: 400,
-        fontSize: '1rem',
+        fontSize: '1.4rem',
         color: '#FFF',
       },
       h1: {
@@ -97,7 +98,12 @@ const theme = responsiveFontSizes(
         lineHeight: 1.2,
       },
       h2: {
+        fontSize: '3rem',
         fontWeight: 700,
+      },
+      h3: {
+        fontSize: '1.8rem',
+        fontWeight: 500,
       },
       h5: {
         fontWeight: 700,
@@ -133,6 +139,16 @@ const theme = responsiveFontSizes(
     },
     palette: {
       mode: 'light',
+      action: {
+        active: lightBlue[200],
+        activatedOpacity: 1,
+        hover: lightBlue[100],
+        hoverOpacity: 0.7,
+        focus: lightBlue[600],
+        focusOpacity: 1,
+        selected: lightBlue[300],
+        selectedOpacity: 1,
+      },
       primary: {
         main: '#4CAF50',
         contrastText: '#FFF',
