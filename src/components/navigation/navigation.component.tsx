@@ -30,7 +30,10 @@ const Navigation = () => {
                   <Typography
                     variant='subtitle2'
                     color='primary'
-                    sx={{ textTransform: 'uppercase', textAlign: 'start' }}
+                    sx={{
+                      textTransform: 'uppercase',
+                      textAlign: 'start',
+                    }}
                   >
                     Online
                   </Typography>
