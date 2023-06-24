@@ -2,9 +2,8 @@ import {
   ClipPathGreenBackground,
   HeroBackground,
   HeroDivider,
-  Image,
+  PlaceholderForImage,
 } from './hero.styles';
-import WomanWithBaggages from '../../assets/images/womanWithBaggages.png';
 import Grid from '@mui/material/Unstable_Grid2';
 import { Button, Container, Link, Stack, Typography } from '@mui/material';
 
@@ -15,15 +14,12 @@ const Hero = () => {
       <Container>
         <Grid container columns={24}>
           <Grid xs={0} md={10} lg={12}>
-            <Image src={WomanWithBaggages} />
+            <PlaceholderForImage />
           </Grid>
-          <Grid md={2} lg xl />
-          <Grid xs={24} md={10} lg={9} mt={10}>
-            <Stack height={'100%'}>
-              <Stack
-                alignItems={{ xs: 'center', md: 'flex-end' }}
-                sx={{ mb: { xs: 10, md: 5 } }}
-              >
+          <Grid md={3} lg xl />
+          <Grid xs={24} md={11} lg={9} sx={{ mt: { xs: 10, md: 12 } }}>
+            <Stack height={'100%'} spacing={15}>
+              <Stack alignItems={{ xs: 'center', md: 'flex-end' }}>
                 <Typography color='secondary' variant='h3' mb={-2} noWrap>
                   Доставка товаров с рынка
                 </Typography>
@@ -81,7 +77,7 @@ const Hero = () => {
               </Stack>
             </Stack>
           </Grid>
-          <Grid md={2} lg xl />
+          <Grid md={0} lg xl />
         </Grid>
       </Container>
     </HeroBackground>

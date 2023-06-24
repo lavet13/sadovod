@@ -1,13 +1,7 @@
-import { LogoButton, NavigationBackground } from './navigation.styles';
+import { NavigationBackground } from './navigation.styles';
 import Grid from '@mui/material/Unstable_Grid2';
-import {
-  Button,
-  ButtonGroup,
-  Container,
-  Stack,
-  Typography,
-} from '@mui/material';
-import { ReactComponent as LogoSVG } from '../../assets/icons/Logo.svg';
+import { Button, ButtonGroup, Container, Stack } from '@mui/material';
+import Logo from '../logo/logo.component';
 
 const Navigation = () => {
   return (
@@ -21,24 +15,7 @@ const Navigation = () => {
               alignItems='center'
               spacing={1}
             >
-              <LogoButton focusRipple>
-                <LogoSVG />
-                <Stack>
-                  <Typography color='secondary' variant='h5'>
-                    Садовод
-                  </Typography>
-                  <Typography
-                    variant='subtitle2'
-                    color='primary'
-                    sx={{
-                      textTransform: 'uppercase',
-                      textAlign: 'start',
-                    }}
-                  >
-                    Online
-                  </Typography>
-                </Stack>
-              </LogoButton>
+              <Logo />
             </Stack>
           </Grid>
           <Grid xs={8}>

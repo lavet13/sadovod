@@ -6,7 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import {
   CssBaseline,
   responsiveFontSizes,
+  Shadows,
   StyledEngineProvider,
+  ThemeOptions,
 } from '@mui/material';
 
 import { ThemeProvider, createTheme } from '@mui/material';
@@ -82,8 +84,13 @@ const RalewayBlack = {
   src: `url(${RalewayBlackTTF}) format('truetype')`,
 };
 
+const temporaryTheme = createTheme();
+
+const defaultShadows: ThemeOptions['shadows'] = [...temporaryTheme.shadows];
+
 const theme = responsiveFontSizes(
   createTheme({
+    shadows: Array(defaultShadows.length).fill('none') as Shadows,
     typography: {
       fontFamily: 'Raleway',
       body1: {
