@@ -6,13 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import {
   Breakpoint,
   CssBaseline,
-  responsiveFontSizes,
   StyledEngineProvider,
+  responsiveFontSizes,
 } from '@mui/material';
 
 import { ThemeProvider, createTheme } from '@mui/material';
-
-import { ThemeProvider as ScThemeProvider } from 'styled-components';
 
 import RalewayExtraLightTTF from './assets/fonts/Raleway/Raleway-ExtraLight.ttf';
 import RalewayLightTTF from './assets/fonts/Raleway/Raleway-Light.ttf';
@@ -22,6 +20,7 @@ import RalewaySemiBoldTTF from './assets/fonts/Raleway/Raleway-SemiBold.ttf';
 import RalewayBoldTTF from './assets/fonts/Raleway/Raleway-Bold.ttf';
 import RalewayExtraBoldTTF from './assets/fonts/Raleway/Raleway-ExtraBold.ttf';
 import RalewayBlackTTF from './assets/fonts/Raleway/Raleway-Black.ttf';
+import { Typography } from '@mui/material/styles/createTypography';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -98,106 +97,152 @@ const defaultTheme = createTheme({
     },
   },
 });
+
 const {
-  breakpoints,
   typography: { pxToRem },
+  breakpoints,
 } = defaultTheme;
 
-const theme = responsiveFontSizes(
-  createTheme({
-    ...defaultTheme,
-    typography: {
-      fontFamily: 'Raleway',
-      body1: {
-        fontWeight: 400,
-        fontSize: pxToRem(32),
-        color: '#3D3D3D',
-      },
-      h1: {
-        fontSize: pxToRem(135),
-        fontWeight: 700,
-        lineHeight: 1.2,
-      },
-      h2: {
-        fontSize: pxToRem(71),
-        fontWeight: 700,
-        lineHeight: 1,
-      },
-      h3: {
-        fontSize: pxToRem(39),
-        fontWeight: 500,
-        lineHeight: 1,
-      },
-      h5: {
-        fontWeight: 700,
-        fontSize: pxToRem(28),
-        lineHeight: 1,
-      },
-      subtitle2: {
-        fontWeight: 900,
-        lineHeight: 1,
-      },
-      button: {
-        fontWeight: 700,
-        fontSize: pxToRem(27),
-        lineHeight: 2.3,
-        textTransform: 'unset',
-      },
+const customTheme = createTheme({
+  ...defaultTheme,
+  typography: {
+    fontFamily: 'Raleway',
+    logoText1: {
+      fontWeight: 700,
+      fontSize: pxToRem(28),
+      lineHeight: 1,
     },
-    components: {
-      MuiCssBaseline: {
-        styleOverrides: {
-          html: [
-            { '@font-face': RalewayExtraLight },
-            { '@font-face': RalewayLight },
-            { '@font-face': RalewayRegular },
-            { '@font-face': RalewayMedium },
-            { '@font-face': RalewaySemiBold },
-            { '@font-face': RalewayBold },
-            { '@font-face': RalewayExtraBold },
-            { '@font-face': RalewayBlack },
-          ],
-          'html, body': {
-            padding: 0,
-          },
+    logoText2: {
+      fontSize: pxToRem(17),
+      fontWeight: 900,
+      lineHeight: 1,
+    },
+    body1: {
+      fontWeight: 400,
+      fontSize: pxToRem(22),
+      color: '#3D3D3D',
+    },
+    body2: {
+      fontSize: pxToRem(28),
+    },
+    h1: {
+      fontSize: pxToRem(130),
+      fontWeight: 700,
+      lineHeight: 1.2,
+    },
+    h2: {
+      fontSize: pxToRem(71),
+      fontWeight: 700,
+      lineHeight: 1,
+    },
+    h3: {
+      fontSize: pxToRem(39),
+      fontWeight: 500,
+      lineHeight: 1,
+    },
+    h4: {
+      fontSize: pxToRem(32),
+    },
+    h5: {
+      fontWeight: 700,
+      fontSize: pxToRem(28),
+      lineHeight: 1,
+    },
+    subtitle1: {
+      fontSize: pxToRem(30),
+      fontWeight: 500,
+      lineHeight: 1,
+    },
+    button: {
+      fontWeight: 700,
+      fontSize: pxToRem(20),
+      lineHeight: 2,
+      textTransform: 'unset',
+    },
+  },
+  components: {
+    MuiTypography: {
+      defaultProps: {
+        fontFamily: 'Raleway',
+        variantMapping: {
+          logoText1: 'span',
+          logoText2: 'span',
         },
       },
     },
-    palette: {
-      mode: 'light',
-      primary: {
-        main: '#4CAF50',
-        contrastText: '#FFF',
+    MuiCssBaseline: {
+      styleOverrides: {
+        html: [
+          { '@font-face': RalewayExtraLight },
+          { '@font-face': RalewayLight },
+          { '@font-face': RalewayRegular },
+          { '@font-face': RalewayMedium },
+          { '@font-face': RalewaySemiBold },
+          { '@font-face': RalewayBold },
+          { '@font-face': RalewayExtraBold },
+          { '@font-face': RalewayBlack },
+        ],
+        'html, body': {
+          padding: 0,
+        },
       },
-      secondary: {
-        main: '#3D3D3D',
-        contrastText: '#FFF',
-      },
-      yellow: {
-        main: '#FFAD1D',
-        contrastText: '#FFF',
-      },
-      white: {
-        main: '#FFF',
-        contrastText: '#FFF',
-      },
-      contrastThreshold: 4.5,
     },
-    shape: {
-      borderRadius: 0,
+  },
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#4CAF50',
+      contrastText: '#FFF',
     },
-  }),
-  { breakpoints: Object.keys(breakpoints.values) as Breakpoint[], factor: 5 }
-);
+    secondary: {
+      main: '#3D3D3D',
+      contrastText: '#FFF',
+    },
+    yellow: {
+      main: '#FFAD1D',
+      contrastText: '#FFF',
+    },
+    white: {
+      main: '#FFF',
+      contrastText: '#FFF',
+    },
+    contrastThreshold: 4.5,
+  },
+  shape: {
+    borderRadius: 0,
+  },
+});
+
+const { typography } = customTheme;
+const exceptions = [
+  'pxToRem',
+  'inherit',
+  'htmlFontSize',
+  'fontFamily',
+  'fontSize',
+  'fontWeightBold',
+  'fontWeightLight',
+  'fontWeightMedium',
+  'fontWeightRegular',
+];
+// 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2', 'caption', 'button', 'overline' - actual variants
+
+const typographyVariants = Object.keys(typography).filter(
+  variant => !exceptions.includes(variant)
+) as (keyof Typography)[];
+
+const theme = responsiveFontSizes(customTheme, {
+  breakpoints: Object.keys(breakpoints.values) as Breakpoint[],
+  factor: 5,
+  variants: typographyVariants,
+});
 
 root.render(
   // <React.StrictMode>
   <StyledEngineProvider injectFirst>
     <ThemeProvider theme={theme}>
-      <ScThemeProvider theme={theme}>
-        <CssBaseline />
-        <App />
-      </ScThemeProvider>
+      <CssBaseline />
+      <App />
     </ThemeProvider>
   </StyledEngineProvider>
   // </React.StrictMode>

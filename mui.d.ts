@@ -19,11 +19,33 @@ declare module '@mui/material/Button' {
   }
 }
 
+// additional breakpoints
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
     '2xl': true;
     '3xl': true;
     '4xl': true;
     '5xl': true;
+  }
+}
+
+declare module '@mui/material/styles' {
+  interface TypographyVariants {
+    logoText1: React.CSSProperties;
+    logoText2: React.CSSProperties;
+  }
+
+  // allow configuration using `createTheme`
+  interface TypographyVariantsOptions {
+    logoText1?: React.CSSProperties;
+    logoText2?: React.CSSProperties;
+  }
+}
+
+// Update the Typography's variant prop options
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    logoText1: true;
+    logoText2: true;
   }
 }

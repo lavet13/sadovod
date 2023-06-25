@@ -84,7 +84,7 @@ const Header = () => {
                 </Tooltip>
                 <Logo />
                 <Button
-                  sx={{ lineHeight: 3.5 }}
+                  sx={{ lineHeight: 2.4 }}
                   color='primary'
                   variant='contained'
                   disableElevation

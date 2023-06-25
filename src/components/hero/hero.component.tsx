@@ -20,7 +20,12 @@ const Hero = () => {
           <Grid xs={24} md={11} lg={9} sx={{ mt: { xs: 10, md: 12 } }}>
             <Stack height={'100%'} spacing={15}>
               <Stack alignItems={{ xs: 'center', md: 'flex-end' }}>
-                <Typography color='secondary' variant='h3' mb={-2} noWrap>
+                <Typography
+                  color='secondary'
+                  variant='subtitle1'
+                  mb={-2}
+                  noWrap
+                >
                   Доставка товаров с рынка
                 </Typography>
                 <Typography variant='h1' color='primary'>
@@ -38,7 +43,7 @@ const Hero = () => {
                 <Typography color='secondary' variant='h2' noWrap>
                   Покупай выгодно!!
                 </Typography>
-                <Typography color='secondary' variant='body1' noWrap>
+                <Typography color='secondary' variant='h4' noWrap>
                   доставка по всей РОССИИ • ЛДНР • КРЫМ
                 </Typography>
               </Stack>
@@ -77,7 +82,6 @@ const Hero = () => {
               </Stack>
             </Stack>
           </Grid>
-          <Grid md={0} lg xl />
         </Grid>
       </Container>
     </HeroBackground>

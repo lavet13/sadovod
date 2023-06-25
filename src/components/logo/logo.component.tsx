@@ -7,11 +7,11 @@ const Logo = () => {
     <LogoButton focusRipple>
       <LogoSVG />
       <Stack>
-        <Typography color='secondary' variant='h5'>
+        <Typography color='secondary' variant='logoText1'>
           Садовод
         </Typography>
         <Typography
-          variant='subtitle2'
+          variant='logoText2'
           color='primary'
           sx={{
             textTransform: 'uppercase',
