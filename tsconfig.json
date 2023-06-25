@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "./font.d.ts", "./custom.d.ts"]
+  "include": ["src", "mui.d.ts", "./custom.d.ts"]
 }

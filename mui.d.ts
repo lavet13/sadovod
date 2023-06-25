@@ -18,3 +18,12 @@ declare module '@mui/material/Button' {
     white: true;
   }
 }
+
+declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    '2xl': true;
+    '3xl': true;
+    '4xl': true;
+    '5xl': true;
+  }
+}

@@ -8,18 +8,13 @@ const Navigation = () => {
     <NavigationBackground>
       <Container maxWidth='lg'>
         <Grid container>
-          <Grid xs={4}>
-            <Stack
-              direction='row'
-              justifyContent='end'
-              alignItems='center'
-              spacing={1}
-            >
+          <Grid xs container>
+            <Stack direction='row' spacing={1}>
               <Logo />
             </Stack>
           </Grid>
           <Grid xs={8}>
-            <Stack direction='row' justifyContent='center'>
+            <Stack direction='row' justifyContent='end'>
               <ButtonGroup size='large' aria-label='large button group'>
                 <Button variant='text'>Главная</Button>
                 <Button variant='text' color='secondary'>
@@ -28,7 +23,7 @@ const Navigation = () => {
                 <Button variant='text' color='secondary'>
                   Вход
                 </Button>
-                <Button variant='contained' color='secondary'>
+                <Button variant='contained' color='secondary' disableElevation>
                   Каталог
                 </Button>
               </ButtonGroup>

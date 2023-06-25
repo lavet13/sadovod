@@ -4,11 +4,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import {
+  Breakpoint,
   CssBaseline,
   responsiveFontSizes,
-  Shadows,
   StyledEngineProvider,
-  ThemeOptions,
 } from '@mui/material';
 
 import { ThemeProvider, createTheme } from '@mui/material';
@@ -84,38 +83,54 @@ const RalewayBlack = {
   src: `url(${RalewayBlackTTF}) format('truetype')`,
 };
 
-const temporaryTheme = createTheme();
-
-const defaultShadows: ThemeOptions['shadows'] = [...temporaryTheme.shadows];
+const defaultTheme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 425,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      '2xl': 1536,
+      '3xl': 1920,
+      '4xl': 2560,
+      '5xl': 3200,
+    },
+  },
+});
+const {
+  breakpoints,
+  typography: { pxToRem },
+} = defaultTheme;
 
 const theme = responsiveFontSizes(
   createTheme({
-    shadows: Array(defaultShadows.length).fill('none') as Shadows,
+    ...defaultTheme,
     typography: {
       fontFamily: 'Raleway',
       body1: {
         fontWeight: 400,
-        fontSize: '1.4rem',
-        color: '#FFF',
+        fontSize: pxToRem(32),
+        color: '#3D3D3D',
       },
       h1: {
-        fontSize: '6rem',
+        fontSize: pxToRem(135),
         fontWeight: 700,
         lineHeight: 1.2,
       },
       h2: {
-        fontSize: '3rem',
+        fontSize: pxToRem(71),
         fontWeight: 700,
         lineHeight: 1,
       },
       h3: {
-        fontSize: '1.8rem',
+        fontSize: pxToRem(39),
         fontWeight: 500,
         lineHeight: 1,
       },
       h5: {
         fontWeight: 700,
-        fontSize: 28,
+        fontSize: pxToRem(28),
         lineHeight: 1,
       },
       subtitle2: {
@@ -124,6 +139,7 @@ const theme = responsiveFontSizes(
       },
       button: {
         fontWeight: 700,
+        fontSize: pxToRem(27),
         lineHeight: 2.3,
         textTransform: 'unset',
       },
@@ -170,7 +186,8 @@ const theme = responsiveFontSizes(
     shape: {
       borderRadius: 0,
     },
-  })
+  }),
+  { breakpoints: Object.keys(breakpoints.values) as Breakpoint[], factor: 5 }
 );
 
 root.render(
