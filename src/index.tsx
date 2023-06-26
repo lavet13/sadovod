@@ -103,7 +103,9 @@ const {
   breakpoints,
 } = defaultTheme;
 
-const customTheme = createTheme({
+// https://fluid-typography.netlify.app/
+
+const theme = createTheme({
   ...defaultTheme,
   typography: {
     fontFamily: 'Raleway',
@@ -111,16 +113,25 @@ const customTheme = createTheme({
       fontWeight: 700,
       fontSize: pxToRem(28),
       lineHeight: 1,
+      [breakpoints.down('md')]: {
+        fontSize: 'clamp(0.6rem, 2.5vw + 0.6rem, 1.8rem)',
+      },
     },
     logoText2: {
       fontSize: pxToRem(17),
       fontWeight: 900,
       lineHeight: 1,
+      [breakpoints.down('md')]: {
+        fontSize: 'clamp(0.3rem, 1.5vw + 0.3rem, 1rem)',
+      },
     },
     body1: {
       fontWeight: 400,
       fontSize: pxToRem(22),
       color: '#3D3D3D',
+      [breakpoints.down('md')]: {
+        fontSize: 'clamp(0.3rem, 1.5vw + 0.3rem, 1rem)',
+      },
     },
     body2: {
       fontSize: pxToRem(28),
@@ -129,11 +140,17 @@ const customTheme = createTheme({
       fontSize: pxToRem(130),
       fontWeight: 700,
       lineHeight: 1.2,
+      [breakpoints.down('md')]: {
+        fontSize: 'clamp(1.2rem, 9vw + 1.2rem, 5.5rem)',
+      },
     },
     h2: {
       fontSize: pxToRem(71),
       fontWeight: 700,
       lineHeight: 1,
+      [breakpoints.down('md')]: {
+        fontSize: 'clamp(0.4rem, 5.4vw + 0.4rem, 3rem)',
+      },
     },
     h3: {
       fontSize: pxToRem(39),
@@ -142,6 +159,9 @@ const customTheme = createTheme({
     },
     h4: {
       fontSize: pxToRem(32),
+      [breakpoints.down('md')]: {
+        fontSize: 'clamp(0.4rem, 2.3vw + 0.4rem, 1.5rem)',
+      },
     },
     h5: {
       fontWeight: 700,
@@ -152,15 +172,30 @@ const customTheme = createTheme({
       fontSize: pxToRem(30),
       fontWeight: 500,
       lineHeight: 1,
+      [breakpoints.down('md')]: {
+        fontSize: 'clamp(0.6rem, 1.5vw + 0.6rem, 1.3rem)',
+      },
     },
     button: {
       fontWeight: 700,
       fontSize: pxToRem(20),
       lineHeight: 2,
       textTransform: 'unset',
+      [breakpoints.down('md')]: {
+        fontSize: 'clamp(1rem, 1vw + 1rem, 1.5rem)',
+      },
     },
   },
   components: {
+    MuiButtonBase: {
+      styleOverrides: {
+        root: {
+          [breakpoints.down('md')]: {
+            fontSize: 'clamp(0.4rem, 1.7vw + 0.4rem, 1.2rem) !important',
+          },
+        },
+      },
+    },
     MuiTypography: {
       defaultProps: {
         fontFamily: 'Raleway',
@@ -211,30 +246,6 @@ const customTheme = createTheme({
   shape: {
     borderRadius: 0,
   },
-});
-
-const { typography } = customTheme;
-const exceptions = [
-  'pxToRem',
-  'inherit',
-  'htmlFontSize',
-  'fontFamily',
-  'fontSize',
-  'fontWeightBold',
-  'fontWeightLight',
-  'fontWeightMedium',
-  'fontWeightRegular',
-];
-// 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2', 'caption', 'button', 'overline' - actual variants
-
-const typographyVariants = Object.keys(typography).filter(
-  variant => !exceptions.includes(variant)
-) as (keyof Typography)[];
-
-const theme = responsiveFontSizes(customTheme, {
-  breakpoints: Object.keys(breakpoints.values) as Breakpoint[],
-  factor: 5,
-  variants: typographyVariants,
 });
 
 root.render(

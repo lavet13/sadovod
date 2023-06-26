@@ -1,6 +1,6 @@
 import { Stack, Typography } from '@mui/material';
-import { ReactComponent as LogoSVG } from '../../assets/icons/Logo.svg';
 import { LogoButton } from './logo.styles';
+import { LogoSVG } from './logo.styles';
 
 const Logo = () => {
   return (

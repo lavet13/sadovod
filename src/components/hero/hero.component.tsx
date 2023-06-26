@@ -23,7 +23,7 @@ const Hero = () => {
                 <Typography
                   color='secondary'
                   variant='subtitle1'
-                  mb={-2}
+                  mb={{ md: -2, sm: -1.2, xs: -1 }}
                   noWrap
                 >
                   Доставка товаров с рынка
@@ -36,14 +36,19 @@ const Hero = () => {
                   flexItem
                   sx={theme => ({
                     borderColor: theme.palette.primary.main,
-                    borderWidth: 2,
-                    mb: 2,
+                    borderWidth: { xs: 1, sm: 2 },
+                    mb: { md: 2, xs: 1 },
                   })}
                 />
                 <Typography color='secondary' variant='h2' noWrap>
                   Покупай выгодно!!
                 </Typography>
-                <Typography color='secondary' variant='h4' noWrap>
+                <Typography
+                  color='secondary'
+                  variant='h4'
+                  sx={{ mt: { md: 0, sm: 0.5 } }}
+                  noWrap
+                >
                   доставка по всей РОССИИ • ЛДНР • КРЫМ
                 </Typography>
               </Stack>
@@ -63,6 +68,7 @@ const Hero = () => {
                     lineHeight: 2,
                     fontSize: { xs: '2rem', sm: '2.5rem' },
                   }}
+                  noWrap
                 >
                   +7 (949) 516-25-12
                 </Button>
@@ -74,6 +80,7 @@ const Hero = () => {
                     px: 4,
                     borderRadius: `3px`,
                     lineHeight: 2,
+                    whiteSpace: 'nowrap',
                     fontSize: { xs: '1.8rem', sm: '2rem' },
                   }}
                 >

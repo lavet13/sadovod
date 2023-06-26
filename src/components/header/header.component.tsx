@@ -10,6 +10,7 @@ import {
   ListItemText,
   Slide,
   Stack,
+  SwipeableDrawer,
   Toolbar,
   Tooltip,
   alpha,
@@ -41,9 +42,23 @@ const HideOnScroll = (props: HideOnScrollProps) => {
 };
 
 const Header = () => {
+  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const theme = useTheme();
   const isSmall = useMediaQuery(theme.breakpoints.up('md'));
+
+  const toggleDrawer =
+    (flag: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event &&
+        event.type === 'keydown' &&
+        ((event as React.KeyboardEvent).key === 'Tab' ||
+          (event as React.KeyboardEvent).key === 'Shift')
+      ) {
+        return;
+      }
+      setDrawerIsOpen(flag);
+    };
 
   const handleListItemClick = (
     _: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -73,6 +88,7 @@ const Header = () => {
               >
                 <Tooltip title='Меню' arrow>
                   <IconButton
+                    onClick={toggleDrawer(true)}
                     size='large'
                     edge='start'
                     color='primary'
@@ -84,7 +100,12 @@ const Header = () => {
                 </Tooltip>
                 <Logo />
                 <Button
-                  sx={{ lineHeight: 2.4 }}
+                  sx={theme => ({
+                    alignSelf: 'stretch',
+                    lineHeight: 1,
+                    px: { sm: theme.spacing(4), xs: theme.spacing(2) },
+                    py: 0,
+                  })}
                   color='primary'
                   variant='contained'
                   disableElevation
@@ -95,7 +116,12 @@ const Header = () => {
             </AppBar>
           </HideOnScroll>
           <Toolbar />
-          <Drawer anchor='left' open={true}>
+          <SwipeableDrawer
+            anchor='left'
+            open={drawerIsOpen}
+            onOpen={toggleDrawer(true)}
+            onClose={toggleDrawer(false)}
+          >
             <Stack
               sx={{
                 width: 230,
@@ -155,7 +181,7 @@ const Header = () => {
                 </ListItem>
               </List>
             </Stack>
-          </Drawer>
+          </SwipeableDrawer>
         </>
       )}
     </>

@@ -55,11 +55,7 @@ export const HeroDivider = styled(Divider)(({ theme }) => ({
   },
 
   [theme.breakpoints.down('md')]: {
-    width: '60%',
+    width: '100%',
     alignSelf: 'center',
-  },
-
-  [theme.breakpoints.down('sm')]: {
-    width: '250px',
   },
 }));
